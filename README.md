@@ -1,9 +1,9 @@
 # WikiLinksValidator
-One of the most irritating things that can happen to you when going over a wiki is to find out a link in this wiki is not working.
-The WikiLinksValidator is a project designed for wiki projects for validating links.
+A project designed for wiki projects to validate links in it.
+One of the most annoying things that you might encounter while reading a wiki page, is to find out a link in it redirects you to a missing page (404).
 
-WikiLinksValidator is a script that goes over all the files with a pre-defined prefix,
-and searches in the text, for a specific pattern, using regex, that contains a link.
+WikiLinksValidator uses a python script that scans all the files matching a pre-defined prefix,
+and searches, using regex, for a specific pattern in the text that contains a link.
 Once a link has been found it validate it and print an appropriate log.
 
 CONFIGURATION

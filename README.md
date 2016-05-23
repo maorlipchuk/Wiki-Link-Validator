@@ -1,5 +1,5 @@
 # WikiLinksValidator
-A project designed for wiki projects to validate links in it.
+Designed for wiki projects for links validation.
 One of the most annoying things that you might encounter while reading a wiki page, is to find out a link in it redirects you to a missing page (404).
 
 WikiLinksValidator uses a python script that scans all the files matching a pre-defined prefix,

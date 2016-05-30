@@ -18,7 +18,7 @@ The link pattern in regex [](). It should be the Name of the link in the (The li
 * LINK_PATTERN = '\[(.*)\]\((.*)\)'
 
 A regex for http pattern:
-* HTTP_PATTERN = "(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})"
+* HTTP_PATTERN = <i>(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})</i>
 
 Location of log file:
 * DEBUG_LOG = '/home/user/ovirt-site/links.log'

@@ -5,26 +5,9 @@ import os
 import re
 import httplib
 import logging
+import ConfigParser
 from urlparse import urlparse
 
-### Pre-configured parameters. ###
-
-# The root directory of the project which we search all files.
-HOME_DIR = '$HOME/ovirt-site/'
-
-# The file prefix of the files we want to scan
-FILE_PREFIX = '*.html.md'
-
-# The link pattern in regex [](). It should be [Name of the link](The link it self).
-LINK_PATTERN = '\[(.*)\]\((.*)\)'
-
-# A regex for http pattern
-HTTP_PATTERN = '(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})'
-
-# Location of log file
-DEBUG_LOG = '$HOME/ovirt-site/links.log'
-
-logging.basicConfig(filename=DEBUG_LOG, level=logging.ERROR)
 
 def validate_links():
     matches = []
@@ -54,4 +37,19 @@ def validate_links():
                         print 'ERROR:Encountered an internal error validating Web site %s\n (wiki location: %s at line: %s' % (url, file_name, i+1)
                         logging.error('Internal Error!!! %s.\n Web page: %s\n line: %s\n URL: %s' % (e, file_name[38:], i+1, url))
 
-validate_links()
+
+def main():
+    configParser = ConfigParser.RawConfigParser()   
+    configFilePath = 'wiki.conf'
+    configParser.read(configFilePath)
+    self.home_dir = configParser.get('wiki-links-validator', 'HOME_DIR')
+    self.file_prefix = configParser.get('wiki-links-validator', 'FILE_PREFIX')
+    self.link_pattern = configParser.get('wiki-links-validator', 'LINK_PATTERN')
+    self.http_pattern = configParser.get('wiki-links-validator', 'HTTP_PATTERN')
+    self.debug_log = configParser.get('wiki-links-validator', 'DEBUG_LOG')
+    print "dsfdsf %s" % self.home_dir
+    logging.basicConfig(filename=self.debug_log, level=logging.ERROR)
+    #validate_links()
+
+if __name__ == '__main__':
+  main()

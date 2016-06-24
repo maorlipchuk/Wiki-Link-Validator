@@ -8,12 +8,11 @@ class TlsSMTPHandler(logging.handlers.SMTPHandler):
     def emit(self, record):
         """
         Emit a record.
- 
         Format the record and send it to the specified addresses.
         """
         try:
             import smtplib
-            import string # for tls add this line
+            import string  # for tls add this line
             try:
                 from email.utils import formatdate
             except ImportError:
@@ -29,9 +28,9 @@ class TlsSMTPHandler(logging.handlers.SMTPHandler):
                             self.getSubject(record),
                             formatdate(), msg)
             if self.username:
-                smtp.ehlo() # for tls add this line
-                smtp.starttls() # for tls add this line
-                smtp.ehlo() # for tls add this line
+                smtp.ehlo()  # for tls add this line
+                smtp.starttls()  # for tls add this line
+                smtp.ehlo()  # for tls add this line
                 smtp.login(self.username, self.password)
             smtp.sendmail(self.fromaddr, self.toaddrs, msg)
             smtp.quit()
@@ -57,7 +56,8 @@ password = configParser.get('mail-wiki-links-validator', 'PASSWORD')
 def send_mail(msg, toaddr):
     logger = logging.getLogger("mail")
     addr = 'mlipchuk@redhat.com'
-    gm = TlsSMTPHandler((mailhost, port), fromaddr, addr, subject, (username, password))
+    gm = TlsSMTPHandler((mailhost, port), fromaddr, addr,
+                        subject, (username, password))
     logger.addHandler(gm)
     logger.log(logging.ERROR, msg)
     logger.removeHandler(gm)

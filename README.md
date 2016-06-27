@@ -42,8 +42,10 @@ If SEND_MAIL option was set to true, an email example will be presented, asking 
 
 Once the user will answer 'yes' or 'no', the script will present the next rot link it founds until it finishes.
 
-At the end of the script, a report of all the rot links can be found at ROT_LINKS_LOG configured at /conf/[wiki.conf](/conf/wiki.conf)
+While the script is running, a report is being generated containning all the rot links' details:
 <p align="center"><img src ="/images/rot_links_report.png" /></p>
+
+The report should be located in the home folder under the name rot_links.log (The report location can be confgured at  ROT_LINKS_LOG at /conf/[wiki.conf](/conf/wiki.conf)
 
 
 ## Other Useful Configuration Values
@@ -58,30 +60,44 @@ At the end of the script, a report of all the rot links can be found at ROT_LINK
 * Some URLs are used in the wiki to reflect an example or an internal link (like localhost).
 Those types of URLs can be configured in the URL whitelist so those can be steped over and avoid validation.
 The whitelist values are being checked against every link found in the git repo files, and if one link contains part of the string in the white list a proper message will be logged and this link will not be validated.
-`URL_WHITELIST = yourhost.example.com,localhost
+```
+URL_WHITELIST = yourhost.example.com,localhost
+```
 
 ### File prefix to scan
 * The prefix of files to scan in the git repo for http links:
-`FILE_PREFIX=*.html.md
+```
+FILE_PREFIX=*.html.md
+```
 
 ### List of invalid http return codes.
 * All the http return codes which reflect an invalid http page:
-`INVALID_HTTP_CODES=
+```
+INVALID_HTTP_CODES
+```
 
 ### HTTP regex pattern
 * The regex which is being used for http pattern:
-`HTTP_PATTERN =
+```
+HTTP_PATTERN
+```
 
 * Second HTTP_PATTERN regex to double check the URL link:
-`HTTP_PATTERN2 =
+```
+HTTP_PATTERN2
+```
 
 ### Log file
 * Location of the log file:
-`DEBUG_LOG = 'links.log'
+```
+DEBUG_LOG = 'links.log'
+```
 
 ### Mail configuration
 * To manipulate the subject of your mail that will be diplayed once your send it:
-` SUBJECT=Broken http link has been found in wiki page
+```
+SUBJECT=Broken http link has been found in wiki page
+```
 
 The rest of the configuration can be found at conf/[mail.conf](/conf/mail.conf):
 

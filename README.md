@@ -50,13 +50,13 @@ The report should be located in the home folder under the name rot_links.log (Th
 
 ## Other Useful Configuration Values
 
-### Configure the location of your rot links report
+#### Configure the location of your rot links report
 * Once the util is running a report of all the rot links in the git repo will be published in a log file configured in  /conf/[wiki.conf](/conf/wiki.conf):
   ```
      ROT_LINKS_LOG=rot_links.log
   ```
 
-### Whitelist URLs
+#### Whitelist URLs
 * Some URLs are used in the wiki to reflect an example or an internal link (like localhost).
 Those types of URLs can be configured in the URL whitelist so those can be steped over and avoid validation.
 The whitelist values are being checked against every link found in the git repo files, and if one link contains part of the string in the white list a proper message will be logged and this link will not be validated.
@@ -64,19 +64,19 @@ The whitelist values are being checked against every link found in the git repo 
 URL_WHITELIST = yourhost.example.com,localhost
 ```
 
-### File prefix to scan
+#### File prefix to scan
 * The prefix of files to scan in the git repo for http links:
 ```
 FILE_PREFIX=*.html.md
 ```
 
-### List of invalid http return codes.
+#### List of invalid http return codes.
 * All the http return codes which reflect an invalid http page:
 ```
 INVALID_HTTP_CODES
 ```
 
-### HTTP regex pattern
+#### HTTP regex pattern
 * The regex which is being used for http pattern:
 ```
 HTTP_PATTERN
@@ -87,13 +87,13 @@ HTTP_PATTERN
 HTTP_PATTERN2
 ```
 
-### Log file
+#### Log file
 * Location of the log file:
 ```
 DEBUG_LOG = 'links.log'
 ```
 
-### Mail configuration
+#### Mail configuration
 * To manipulate the subject of your mail that will be diplayed once your send it:
 ```
 SUBJECT=Broken http link has been found in wiki page

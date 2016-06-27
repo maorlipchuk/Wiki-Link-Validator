@@ -31,7 +31,7 @@ Once a link has been found it validate it and print an appropriate log.
 
 ## USAGE
 After all is configured, run [wiki-links-validity.py](/wiki-links-validity.py) from the project home folder:
-'./wiki-links-validity.py
+`./wiki-links-validity.py`
 
 Once the utility will encounter a rot link, it will check the git repo (Configured at HOME_DIR in /conf/[wiki.conf](/conf/wiki.conf)) for the first appearance of the URL using `git log --reverse`, and fetch the commiter email, username and the commit hashcode.
 

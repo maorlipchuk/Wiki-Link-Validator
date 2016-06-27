@@ -12,7 +12,7 @@ Once a link has been found it validate it and print an appropriate log.
 ## SETUP
 * Make sure <i>python</i> and <i>git</i> are installed on your env.
 
-* Clone your wiki git repo as so : `git clone git@github.com:{any wiki project}.git`
+* Clone the wiki git repo you want to scan, as so : `git clone git@github.com:{any wiki project}.git`
   
   For example, this is how we clone ovirt-site:
   ``` 

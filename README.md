@@ -3,7 +3,7 @@ A python tool designed for validating URLs as part of your wiki content, that is
 <p align="center"><img src ="/images/Introducing.gif" /></p>
 
 ## Description
-One of the most annoying things that you might encounter while going over a wiki page, is to find out a link in it redirects you to a missing page (404).
+One of the most annoying things you might encounter while going over a wiki page, is to find out a link in it redirects you to a missing page (404).
 
 Wiki-Validator uses a python script that scans all the files matching a pre-defined prefix,
 and searches, using regex, for a specific pattern in the text that contains a link.

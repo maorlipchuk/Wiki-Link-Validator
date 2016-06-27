@@ -13,7 +13,7 @@ Once a link has been found it validate it and print an appropriate log.
 * Make sure <i>python</i> and <i>git</i> are installed on your env.
 
 * Clone the wiki git repo you want to scan, as so : `git clone git@github.com:{any wiki project}.git`
-  
+
   For example, this is how we clone ovirt-site:
   ``` 
   git clone git@github.com:oVirt/ovirt-site.git
@@ -28,6 +28,7 @@ Once a link has been found it validate it and print an appropriate log.
    ```
       SEND_MAIL = 'True'
    ```
+
 ## USAGE
 After all is configured, run [wiki-links-validity.py](/wiki-links-validity.py) from the project home folder:
 './wiki-links-validity.py

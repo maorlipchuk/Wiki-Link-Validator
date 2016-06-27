@@ -13,23 +13,23 @@ Once a link has been found it validate it and print an appropriate log.
 * Make sure <i>python</i> and <i>git</i> are installed on your env.
 * Clone the wiki git repo you want to scan, as so : `git clone git@github.com:{any wiki project}.git`  
   For example, this is how to clone ovirt-site:  
-  ``` 
-     git clone git@github.com:oVirt/ovirt-site.git
-  ```
+``` 
+git clone git@github.com:oVirt/ovirt-site.git
+```
 * Once your wiki project is cloned, set the home directory at conf/[wiki.conf](/conf/wiki.conf):  
-   ```
-      HOME_DIR = '/your_git_repo_location/'
-   ```
+```
+HOME_DIR = '/your_git_repo_location/'
+```
 
 * If you also want to add the ability to send a mail to the author which introduced that rot link, set the SEND_MAIL option to true in /conf/[wiki.conf](/conf/wiki.conf):
-   ```
-      SEND_MAIL = 'True'
-   ```
+```
+SEND_MAIL = 'True'
+```
 
 ## USAGE
 After all is configured, run [wiki-links-validity.py](/wiki-links-validity.py) from the project home folder:
 ```
-   ./wiki-links-validity.py`
+./wiki-links-validity.py`
 ```
 
 Once the utility will encounter a rot link, it will check the git repo (Configured at HOME_DIR in /conf/[wiki.conf](/conf/wiki.conf)) for the first appearance of the URL using `git log --reverse`, and fetch the commiter email, username and the commit hashcode.
@@ -100,7 +100,7 @@ The rest of the configuration can be found at conf/[mail.conf](/conf/mail.conf):
 
 ## Troubleshoot
 
-* If the script fails to run, please check the logs (log location should be configured in DEBUG_LOG at conf/[wiki.conf](/conf/wiki.conf):
+If the script fails to run, please check the logs (log location should be configured in DEBUG_LOG at conf/[wiki.conf](/conf/wiki.conf):
 
 ## Contact
 

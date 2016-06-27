@@ -19,27 +19,41 @@ Once a link has been found it validate it and print an appropriate log.
   git clone git@github.com:oVirt/ovirt-site.git
   ```
 
-* Once your wiki project is cloned, set the home directory at conf/wiki.conf ![](/conf/wiki.conf):
+* Once your wiki project is cloned, set the home directory at conf/[wiki.conf](/conf/wiki.conf):
 ```
    HOME_DIR = '/your_git_repo_location/'
 ```
 
-* If you also want to send a mail to the author that introduced that rot link, set the SEND_MAIL option to true at /conf/wiki.conf ![conf/wiki.conf](/conf/wiki.conf):
+* If you also want to add the ability to send a mail to the author which introduced that rot link, set the SEND_MAIL option to true in /conf/[wiki.conf](/conf/wiki.conf):
 ```
-   HOME_DIR = 'SEND_MAIL = 'True'
+   SEND_MAIL = 'True'
 ```
 
-* There are other configuration values that can File prefix of the files we want to scan:
->FILE_PREFIX = '*.html.md'
+* Once the util is running a report of all the rot links in the git repo will be published in a log file configured in  /conf/[wiki.conf](/conf/wiki.conf):
+```
+   ROT_LINKS_LOG=rot_links.log
+```
 
-The link pattern in regex [](). It should be the Name of the link in the (The link it self):
->LINK_PATTERN = '\[(.*)\]\((.*)\)'
+## Other Useful Configuration Values
 
-A regex for http pattern:
->HTTP_PATTERN = (https?:\/\/(?:\www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})
+* Some URLs are used in the wiki to reflect an example or an internal link (like localhost).
+Those types of URLs can be configured in the URL whitelist so those can be steped over and avoid validation.
+The whitelist values are being checked against every link found in the git repo files, and if one link contains part of the string in the white list a proper message will be logged and this link will not be validated.
+`URL_WHITELIST = yourhost.example.com,localhost
 
-Location of log file:
->DEBUG_LOG = '/home/user/ovirt-site/links.log'
+* The prefix of files to scan in the git repo for http links:
+`FILE_PREFIX=*.html.md
 
-## USAGE
+* All the http return codes which reflect an invalid http page:
+`INVALID_HTTP_CODES=
+
+* The regex which is being used for http pattern:
+`HTTP_PATTERN =
+
+* Second HTTP_PATTERN regex to double check the URL link:
+`HTTP_PATTERN2 =
+
+* Location of the log file:
+`DEBUG_LOG = '/home/user/ovirt-site/links.log'
+
 

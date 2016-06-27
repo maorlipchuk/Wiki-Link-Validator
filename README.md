@@ -13,18 +13,18 @@ Once a link has been found it validate it and print an appropriate log.
 * Make sure <i>python</i> and <i>git</i> are installed on your env.
 * Clone the wiki git repo you want to scan, as so : `git clone git@github.com:{any wiki project}.git`  
   For example, this is how to clone ovirt-site:  
-``` 
-git clone git@github.com:oVirt/ovirt-site.git
-```
+  ``` 
+  git clone git@github.com:oVirt/ovirt-site.git
+  ```
 * Once your wiki project is cloned, set the home directory at conf/[wiki.conf](/conf/wiki.conf):  
-```
-HOME_DIR = '/your_git_repo_location/'
-```
+  ```
+  HOME_DIR = '/your_git_repo_location/'
+  ```
 
 * If you also want to add the ability to send a mail to the author which introduced that rot link, set the SEND_MAIL option to true in /conf/[wiki.conf](/conf/wiki.conf):
-```
-SEND_MAIL = 'True'
-```
+  ```
+  SEND_MAIL = 'True'
+  ```
 
 ## USAGE
 After all is configured, run [wiki-links-validity.py](/wiki-links-validity.py) from the project home folder:

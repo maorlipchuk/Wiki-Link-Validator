@@ -1,5 +1,7 @@
-# WikiLinkValidator - Script to validate your http links
-# 
+# WikiLinkValidator - Validate URL links in your wiki.
+A python tool designed to validate URLs as part of the wiki content which is managed in a git repository.
+
+![](/images/Introducing.gif)
 
 A tool designed to validate http links in wiki projects.
 

@@ -49,9 +49,9 @@ The report should be located in the home folder under the name rot_links.log (Th
 
 #### Configure the location of your rot links report
 Once the util is running a report of all the rot links in the git repo will be published in a log file configured in  /conf/[wiki.conf](/conf/wiki.conf):
-  ```
-     ROT_LINKS_LOG=rot_links.log
-  ```
+```
+ROT_LINKS_LOG=rot_links.log
+```
 
 #### Whitelist URLs
 Some URLs are used in the wiki to reflect an example or an internal link (like localhost).

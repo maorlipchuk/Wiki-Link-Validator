@@ -62,36 +62,36 @@ URL_WHITELIST = yourhost.example.com,localhost
 ```
 
 #### File prefix to scan
-* The prefix of files to scan in the git repo for http links:
+The prefix of files to scan in the git repo for http links:
 ```
 FILE_PREFIX=*.html.md
 ```
 
 #### List of invalid http return codes.
-* All the http return codes which reflect an invalid http page:
+All the http return codes which reflect an invalid http page:
 ```
 INVALID_HTTP_CODES
 ```
 
 #### HTTP regex pattern
-* The regex which is being used for http pattern:
+The regex which is being used for http pattern:
 ```
 HTTP_PATTERN
 ```
 
-* Second HTTP_PATTERN regex to double check the URL link:
+Second HTTP_PATTERN regex to double check the URL link:
 ```
 HTTP_PATTERN2
 ```
 
 #### Log file
-* Location of the log file:
+Location of the log file:
 ```
 DEBUG_LOG = 'links.log'
 ```
 
 #### Mail configuration
-* The subject of the email, sent to the author, can be manipulated at conf/[mail.conf](/conf/mail.conf):
+The subject of the email, sent to the author, can be manipulated at conf/[mail.conf](/conf/mail.conf):
 ```
 SUBJECT=Broken http link has been found in wiki page
 ```

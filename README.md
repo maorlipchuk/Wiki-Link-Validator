@@ -31,15 +31,16 @@ Once a link has been found it validate it and print an appropriate log.
 
 ## USAGE
 After all is configured, run [wiki-links-validity.py](/wiki-links-validity.py) from the project home folder:
-`./wiki-links-validity.py`
+```
+   ./wiki-links-validity.py`
+```
 
 Once the utility will encounter a rot link, it will check the git repo (Configured at HOME_DIR in /conf/[wiki.conf](/conf/wiki.conf)) for the first appearance of the URL using `git log --reverse`, and fetch the commiter email, username and the commit hashcode.
 
 If SEND_MAIL option was set to true, an email example will be presented, asking if you confirm sending this email to the user:
 <p align="center"><img src ="/images/mail_question.png" /></p>
-<p align="center"><img src ="/images/mail_example.png" /></p>
 
-Once the user will answer 'yes' or 'no', the script will present the next rot link it found until it finishes.
+Once the user will answer 'yes' or 'no', the script will present the next rot link it founds until it finishes.
 
 At the end of the script, a report of all the rot links can be found at ROT_LINKS_LOG configured at /conf/[wiki.conf](/conf/wiki.conf)
 <p align="center"><img src ="/images/rot_links_report.png" /></p>

@@ -1,6 +1,6 @@
 # WikiLinkValidator - Validate URL links in your wiki.
 A python tool designed for validating URLs as part of your wiki content, that is managed in a git repository.
-<div style="text-align:center"><img src ="/images/Introducing.gif" /></div>
+<p align="center"><img src ="/images/Introducing.gif" /></p>
 
 ## Description
 One of the most annoying things that you might encounter while going over a wiki page, is to find out a link in it redirects you to a missing page (404).

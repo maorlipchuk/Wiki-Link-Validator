@@ -12,7 +12,7 @@ Once a link has been found it validate it and print an appropriate log.
 ## SETUP
 * Make sure <i>python</i> and <i>git</i> are installed on your env.
 * Clone the wiki git repo you want to scan, as so : `git clone git@github.com:{any wiki project}.git`  
-  For example, this is how we clone ovirt-site:  
+  For example, this is how to clone ovirt-site:  
   ``` 
      git clone git@github.com:oVirt/ovirt-site.git
   ```
@@ -91,7 +91,7 @@ DEBUG_LOG = 'links.log'
 ```
 
 #### Mail configuration
-* To manipulate the subject of your mail that will be diplayed once your send it:
+* The subject of the email, sent to the author, can be manipulated at conf/[mail.conf](/conf/mail.conf):
 ```
 SUBJECT=Broken http link has been found in wiki page
 ```

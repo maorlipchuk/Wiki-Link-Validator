@@ -2,6 +2,7 @@
 
 import ConfigParser
 import fnmatch
+import getopt
 import httplib
 import logging
 import os
@@ -15,16 +16,20 @@ from urlparse import urlparse
 
 class ValidateWikiLinks():
 
-    def __init__(self):
-        self._init_conf()
+    def __init__(self, home_dir, should_send_mail):
+        self._init_conf(home_dir, should_send_mail)
         self.validate_links()
 
-    def _init_conf(self):
+    def _init_conf(self, home_dir, should_send_mail):
         # Get all configuration values
         configParser = ConfigParser.RawConfigParser()
         configFilePath = 'conf/wiki.conf'
         configParser.read(configFilePath)
-        self.home_dir = configParser.get('wiki-links-validator', 'HOME_DIR')
+        if (home_dir):
+            self.home_dir = home_dir
+        else:
+            self.home_dir = configParser.get(
+                'wiki-links-validator', 'HOME_DIR')
         self.file_prefix = configParser.get(
             'wiki-links-validator', 'FILE_PREFIX')
         http_pattern = configParser.get(
@@ -35,8 +40,11 @@ class ValidateWikiLinks():
             'wiki-links-validator', 'INVALID_HTTP_CODES')
         self.http_url_whitelist = configParser.get(
             'wiki-links-validator', 'URL_WHITELIST').split(',')
-        self.should_send_mail = configParser.get(
-            'wiki-links-validator', 'SEND_MAIL')
+        if should_send_mail:
+            self.should_send_mail = should_send_mail
+        else:
+            self.should_send_mail = configParser.get(
+                'wiki-links-validator', 'SEND_MAIL')
         self.debug_log = configParser.get(
             'wiki-links-validator', 'DEBUG_LOG')
         self.rot_links_log = configParser.get(
@@ -224,5 +232,27 @@ class ValidateWikiLinks():
                     (source, i+1, match.start(0), match.end(0), url, http_res)
         self._print_error_log(error_log)
 
+
+def main(argv):
+    home_dir, should_send_mail = '', ''
+    try:
+        opts, args = getopt.getopt(argv, "d:m:", ["home_dir=", "mail="])
+    except getopt.GetoptError:
+        print 'gerrit.py -d <home_dir> -m <true/false>'
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt == '-h':
+            print 'gerrit.py -d <home_dir> -m <true/false>'
+            sys.exit()
+        elif opt in ("-d", "--home_dir"):
+            home_dir = arg
+        elif opt in ("-m", "--mail"):
+            if arg == 'true':
+                should_send_mail = 'True'
+            else:
+                should_send_mail = 'False'
+
+    ValidateWikiLinks(home_dir, should_send_mail)
+
 if __name__ == '__main__':
-    ValidateWikiLinks()
+    main(sys.argv[1:])

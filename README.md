@@ -10,7 +10,7 @@ and searches, using regex, for a specific pattern in the text that contains a li
 Once a link has been found it validate it and print an appropriate log.
 
 ## SETUP
-* Make sure <i>python</i> and <i>git</i> are installed on your env.
+* Make sure <i>python</i> 2.7 and <i>git</i> 2.3.4 and above are installed on your env.
 * Clone the wiki git repo you want to scan, as so : `git clone git@github.com:{any wiki project}.git`  
   For example, this is how to clone ovirt-site:  
   ``` 
